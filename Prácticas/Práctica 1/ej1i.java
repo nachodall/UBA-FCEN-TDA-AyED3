@@ -30,6 +30,7 @@ public class ej1i {
         if (i == 0) {
             if (k == 0) {
                 solucion = new ArrayList<>(parcial); // Crear una nueva instancia de ArrayList y copiar elementos
+                System.out.println(parcial.isEmpty()); //problema en parcial, que cuando llega no tiene nada
                 return true;
             } else {
                 return false;
