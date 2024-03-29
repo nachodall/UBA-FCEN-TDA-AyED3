@@ -1,0 +1,31 @@
+m = (n^2+n)/2 = numero magico 
+se incializa solu con todos 0s
+se incializa i,j en 0
+c es un array de n^2 posiciones inicializado en 0, donde si un numero es usado en el cuadrado se pone en 1 esa posicion
+
+int cuadradoMagico([][]int solu, int i, int j, int n, int m, []int c){
+    if(j==n){
+        cuadradoMagico(solu, i+1, 0, n, m, c) //paso a otra columna
+    }
+
+    if(i==n){
+        if(esCuadradoMagico(solu,n)){return 1}
+    } else{return 0}
+
+    int res = 0
+    
+    for(k in range (0...n^2)){
+        if(c[k] == 0){ //me fijo si k ya fue usado o no todavia
+            s[i][j] = k
+            if(filaSuperaM(s,m,i) or columnaSuperaM(s,m,j) or diagonalesSuperanM(s,m,i,j)){ //backtrack
+                s[i][j] = 0
+            } else{
+                c[k] == 1
+                r ++ cuadradoMagico(solu,i,j+1,n,m,c)
+                c[k] == 0
+            }
+        }
+    }
+
+    return r 
+}

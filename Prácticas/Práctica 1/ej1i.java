@@ -11,9 +11,10 @@ public class ej1i {
         }
         ArrayList<Integer> solucion = new ArrayList<>();
         ArrayList<Integer> parcial = new ArrayList<>();
+        System.out.println(parcial.isEmpty());
         System.out.println(subsetSum(c, i, k, r, parcial, solucion));
         System.out.println("Elementos del ArrayList:");
-        System.out.println(solucion.isEmpty()); //devuelve vacio - problema con la referencia??
+        System.out.println(solucion.isEmpty()); //devuelve vacio, el problema es que no se agregan elementos a parcial? por que?
         for (int elemento : solucion) {
             System.out.println(elemento);
         }
@@ -29,8 +30,8 @@ public class ej1i {
         }
         if (i == 0) {
             if (k == 0) {
-                solucion = new ArrayList<>(parcial); // Crear una nueva instancia de ArrayList y copiar elementos
-                System.out.println(parcial.isEmpty()); //problema en parcial, que cuando llega no tiene nada
+                solucion.clear();
+                solucion.addAll(parcial);
                 return true;
             } else {
                 return false;
@@ -41,6 +42,7 @@ public class ej1i {
             return true;
         }
         parcial.add(c[i - 1]);
+        System.out.println(parcial.isEmpty());
         if (subsetSum(c, i - 1, k - c[i - 1], r, parcial, solucion)) {
             return true;
         }
