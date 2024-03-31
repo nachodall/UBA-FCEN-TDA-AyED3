@@ -6,23 +6,6 @@ class Jugador:
         self.ataque = ataque;
         self.defensa = defensa;
 
-def buscarFormacionIdeal(jugadores):
-    print("entre")
-    delanteros: List[Jugador] = [];
-    defensores: List[Jugador] = [];
-    max_ataque = 0;
-    max_defensa = 0;
-    i = 0;
-    usados: List[Jugador] = [] # aca voy guardando los q probe como delantero
-
-
-    def armarDefensores(usados):
-        rta : List[Jugador] = [];
-        for jugador in jugadores:
-            if jugador not in usados:
-                rta.append(jugador);
-        return rta;
-
 
 def buscarFormacionIdeal(jugadores):
     def armarDefensores(usados):
@@ -69,7 +52,7 @@ def buscarFormacionIdeal(jugadores):
 
     backtracking([], [], 0, [], max_ataque, max_defensa, delanteros, defensores)
 
-    return delanteros
+    return delanteros, defensores
 
 
 def main():
@@ -94,8 +77,10 @@ def main():
     Jugador("emotionalblind", 16, 12),
     Jugador("tanaeem", 20, 97)
     ];
-    ta = buscarFormacionIdeal(jugadores); 
-    for jugador in ta:
+    respuesta = buscarFormacionIdeal(jugadores); 
+    for jugador in respuesta[0]:
+        print (jugador.nombre);
+    for jugador in respuesta[1]:
         print (jugador.nombre);
 
 if __name__ == "__main__":
