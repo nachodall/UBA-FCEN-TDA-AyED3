@@ -15,7 +15,9 @@ def buscarFormacionIdeal(jugadores):
                 rta.append(jugador)
         return rta
 
-    def backtracking(delanterosParcial, defensoresParcial, i, usados, max_ataque, max_defensa, delanteros, defensores):
+    def backtracking(delanterosParcial, defensoresParcial, i, usados, delanteros, defensores):
+        nonlocal max_ataque, max_defensa #la clave de todo 
+        
         #caso base 
         if i == 5:
             defensoresParcial = armarDefensores(usados)
@@ -29,7 +31,9 @@ def buscarFormacionIdeal(jugadores):
                 delanteros.extend(sorted(delanterosParcial, key=lambda j: j.nombre))  # Ordenar los delanteros por nombre
                 defensores.clear()
                 defensores.extend(sorted(defensoresParcial, key=lambda j: j.nombre))  # Ordenar los defensores por nombre
+                
             elif (sumaParcialAtaque == max_ataque) and (sumaParcialDefensa == max_defensa):
+                print("entre")
                 delanterosParcial = sorted(delanterosParcial, key=lambda j: j.nombre)
                 if delanterosParcial > delanteros:
                     delanteros.clear()
@@ -38,8 +42,7 @@ def buscarFormacionIdeal(jugadores):
                     defensores.extend(sorted(defensoresParcial, key=lambda j: j.nombre))  # Ordenar los defensores por nombre
             return
         
-
-
+        
         #caso "recursivo" 
         for j in range(len(jugadores)):
             jugadorN = jugadores[j]
@@ -50,8 +53,8 @@ def buscarFormacionIdeal(jugadores):
             delanterosParcial.append(jugadorN)
             i += 1
 
-            backtracking(delanterosParcial, defensoresParcial, i, usados, max_ataque, max_defensa, delanteros, defensores)
-
+            backtracking(delanterosParcial, defensoresParcial, i, usados, delanteros, defensores)
+            
             usados.remove(jugadorN)
             delanterosParcial.remove(jugadorN)
             i -= 1
@@ -61,11 +64,11 @@ def buscarFormacionIdeal(jugadores):
     delanteros = []
     defensores = []
 
-    backtracking([], [], 0, [], max_ataque, max_defensa, delanteros, defensores)
+    backtracking([], [], 0, [], delanteros, defensores)
 
     return delanteros, defensores
 
-"""
+
 def main():
     T = int(input());
 
@@ -97,6 +100,6 @@ def main():
     hola = buscarFormacionIdeal(jugadores)
     for jugador in hola[0]:
         print(jugador.nombre)
-
+"""
 if __name__ == "__main__":
     main();
