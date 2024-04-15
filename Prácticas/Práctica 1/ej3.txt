@@ -1,8 +1,0 @@
-m: matriz cuadrada de tamaño n 
-k: int 
-backtracking(parcial = cjto vacio, nivel = 0, i= 0)
-
-backtracking(parcial = cjto vacio, nivel: int, i: int):
-    if i == k:
-        return sumatoria(m,cjto)
-        
