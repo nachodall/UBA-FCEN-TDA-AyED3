@@ -1,0 +1,37 @@
+en todo momento hago la "mejor" eleccion posible o=por alguna heurisitca 
+Ejercicio Renault 12:
+    paradas minimas en O(n)
+    G(estaciones, C)
+        act = 0
+        est = cjtoVacio()
+        for i =1,..,len(estaciones):
+            if (estaciones[i] - act) > c:
+                rta = rta U {i-1}
+                act = estaciones[i-1]
+
+Demostrar:
+1. ver q la solucion es valida
+2. ver q la solucion es optima 
+
+2. probar que el algoritmo "greedy" siempre se mantiene adelante
+
+.O bien supongo una solucion optima =! greedy y llego a que hay otra optima (proof by contradicition) o 
+    supongo una optima y llego a la greedy modificandola y viendo que no empeora 
+
+    cb: Oi <= Gi 
+        O1 <= G1 
+
+    HI: Oi <= Gi 1<=i<=k
+
+    qvq: Ok+1 <= Gk+1 
+
+    Ok + D = Ok + 1 //es como sumar una estacion 
+/////
+    por hi:
+    <= gk + d <= gk+1, pero gk+1 = gk + D 
+/////
+
+Ok+1 - gk 
+ok + d (por hi) - gk
+
+

@@ -1,0 +1,11 @@
+divide and conquer:
+    mergeSort: partir array desordenado en 2 mitades, ordenar ambas mitades desordenando cada una sucesivamente
+    hasta que llego a 2 elementos y luego voy reconstruyendo. O(n log n)
+
+    iesimo_merge(A,B,i):
+        i --; //arranco del indice 0 
+        a.pointer, b.pointer = 0 
+
+        while i>0:
+            step = (i + 1) / 2 
+
