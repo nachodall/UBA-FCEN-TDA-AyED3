@@ -1,8 +1,8 @@
 #consultar complejidad
-memo = {}  # Diccionario para memoización de resultados
-W = [19, 7, 5, 6, 1]  # Lista de pesos de las cajas
-S = [15, 13, 7, 8, 2]  # Lista de soportes de las cajas
-n = len(W)  # Número de cajas
+memo = {}  
+W = [19, 7, 5, 6, 1]  
+S = [15, 13, 7, 8, 2]  
+n = len(W)  
 
 def pila(i, k):
     if i == -1:
@@ -26,3 +26,4 @@ def pila(i, k):
 print(pila(n - 1, 0))
 
 #complejidad: O(n * sum(W[i]) ya que en cada llamada recursiva llamamos con un distinto i y un peso distinto que como maximo es todos los pesos acumulados
+combinatorio

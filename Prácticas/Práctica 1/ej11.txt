@@ -1,0 +1,28 @@
+Solucion mas intuitiva usando Backtracking con Branch and Bound
+
+signos es char
+OperacionesSeq(A:[int], w:int, sumaParcial:int, i:int, SignosParcial:[signos]):
+    if i == n:
+        if w == sumaParcial:
+            return SignosParcial
+        else:
+            return "Error"
+
+    if w < sumaParcial:
+        return Error 
+    
+    suma = OperacionesSeq(A,w, sumaParcial+A[i], i+1, SignosParcial.append("+"))
+    if suma not Error:
+        return suma
+
+    multiplicacion = OperacionesSeq(A,w, sumaParcial*A[i], i+1, SignosParcial.append("x"))
+    if multiplicacion not Error:
+        return multiplicacion
+
+    potencia = OperacionesSeq(A,w, sumaParcial^A[i], i+1, SignosParcial.append("^"))
+    if potencia not Error:
+        return potencia
+
+    return Error
+
+Complejidad: O(3^n)
