@@ -1,0 +1,34 @@
+Me re olvide de las otras dos estructuras 
+a) Inicializar la estructura:
+Matriz de adyacencia: O(m + n^2), m por recorrer todas las aristas xq hay que ver si aparece un nodo nuevo en cada una y n^2 por inicializar la Matriz
+Lista enlazada: O(n * m), para cada vertice voy recorriendo las aristar y agrego al vertice adyacente en O(1)
+
+b) Determinar si 2 vertices v, w son adyacentes:
+Matriz: O(1) al entrar a M[v][w]
+Lista: O(1) para ingresar a alguno y luego O(m) para ver si esta el otro como vecino 
+
+c) Recorrer el vecindario N(v) de un vertice v dado:
+Matriz: O(n) entrando a todas las posiciones M[v][i] para todo i vertice 
+Lista: O(1) para entrar en v, y despues O(m) para recorrer 
+
+d) Insertar un vertice v con su cjto de vecinos:
+Matriz: O(n^2) porque habria que reconstruir la matriz ya que tiene longitud constante 
+Lista: O(n) para agregar una pos. en el array y luego O(m) para hacer su lista enlazada. O(n + m)
+
+e) Insertar una arista vw:
+Matriz: O(1) poniendo M[v][w] y M[w][v] en 1 
+Lista: O(1) para entrar a v y w, O(m) para recorrer las listas y agregar un nuevo nodo al final 
+
+f) Remover un vertice v con todas sus adyacencias:
+Matriz: O(n), recorrer la fila y columna v y poner todos 0 
+Lista: O(n*m), xq en los n vertices hay que borrar de la lista la referencia al nodo de v 
+
+g) Remover una arista vw:
+Matriz: O(1) poniendo M[v][w] y M[w][v] en 0
+Lista: O(1) para entrar y O(m) para recorrer y borrar las refes al otro vertice
+
+h) Mantener un orden de N(v) de acuerdo a algun invariante que permita recorrer cada vecindario en algun orden dado
+Matriz: O(n) porque habria que ir revisando el vecindario de algun v y modificando en O(1)
+Lista: O(m) por lo mismo
+
+
