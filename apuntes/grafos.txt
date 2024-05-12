@@ -1,0 +1,20 @@
+G = (V,X)
+E = {(i,j) in VxV / la materia i es correlativa de j}
+
+digrafos son grafos dirigidos
+
+N(v) = {w in V / (v,w) in X}
+|N(v)| = d(v)
+
+Recorrido = secuencia de vertices que cumple que para i hay una arista de v_i a v_i+1
+
+Camino = recorrido q no repite vertices 
+
+Conexo = existe camino entre todo par de vertices 
+
+Si todos los vertices tienen grado mayor a cero, el grafo es conexo: Falso
+
+Herramientas para demostrar en grafos:
+Induccion
+Absurdo
+

@@ -21,6 +21,6 @@ Complejidad: Como parto el array en 2 partes y me quedo solo con una:
 a = 1, c = 2, d = 0/1?
 entonces:
 T(n) = 1T(n/2) + O(1)
-Comparando f(n) con n^log_c_a = n^0 = 1 entones entramos en el segundo caso del teorema maestro
+Comparando f(n) con n^log_c_a = n^0 = 1 entones entramos en el primer caso del teorema maestro
 y la complejidad es O(n^0 log n) = O(log n)   
 '''

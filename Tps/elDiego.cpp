@@ -32,7 +32,7 @@ vector<string> bestDefenders;
 int bestAttackSum = 0;
 int bestDefenseSum = 0;
 
-bool lexSmaller(const vector<string>& list1, const vector<string>& list2) {
+bool lexSmaller(const vector<string>& list1, const vector<string>& list2) { //compara dos str
     for(size_t i = 0; i < list1.size(); i++) {
         int comparisonValue = list1[i].compare(list2[i]);
         if(comparisonValue < 0) {
@@ -61,7 +61,7 @@ int sumDef(const vector<Player>& players) {
 }
 
 void backtracking(int i, int j, const vector<Player>& currentDefenders, const vector<Player>& currentForwards, const vector<Player>& players) {
-    if (i == 5 && j == 5) {
+    if (i == 5 && j == 5) { //llenamos ambos equipos 
         int attackSum = sumAtt(currentForwards);
         int defenseSum = sumDef(currentDefenders);
         
@@ -69,8 +69,9 @@ void backtracking(int i, int j, const vector<Player>& currentDefenders, const ve
         for(const Player& forward : currentForwards) {
             currentForwardNames.push_back(forward.getName());
         }
-        sort(currentForwardNames.begin(), currentForwardNames.end());
+        sort(currentForwardNames.begin(), currentForwardNames.end()); //ordenamos los delaneros
         
+        //vemos todos los casos que pueden suceder
         if (attackSum > bestAttackSum || (attackSum == bestAttackSum && defenseSum > bestDefenseSum) || (attackSum == bestAttackSum && defenseSum == bestDefenseSum && lexSmaller(currentForwardNames, bestForwards))) {
             bestAttackSum = attackSum;
             bestDefenseSum = defenseSum;
@@ -92,6 +93,7 @@ void backtracking(int i, int j, const vector<Player>& currentDefenders, const ve
 
     size_t playerIndex = i + j;
 
+    //bt actualizando delanteros y defensores
     if (i < 5) {
         vector<Player> updatedForwards = currentForwards;
         updatedForwards.push_back(players[playerIndex]);
@@ -104,6 +106,7 @@ void backtracking(int i, int j, const vector<Player>& currentDefenders, const ve
     }
 }
 
+//choclo de codigo para parsear input y output
 int main() {
     int T;
     cin >> T;

@@ -1,0 +1,20 @@
+encontrarPuntosArticulacion(G: listaAdyacencia):
+    puntos: int = 0
+    T: arbol, grados: array, niveles: array = dfs(G) //devuelvo todas esas cosas del dfs O(m + n)
+
+    nivelMaximoSinVerPadre: array = dfs(G) //Me guardo que tan arriba puedo llegar desde un nodo v, sin pasar por su padre, lo hago el posprocesamienmto de un dfs escrito recursivo O(m + n)
+
+    if grados[raiz(T)] = 1: //O(1)
+        puntos ++ 
+    
+    for nodo in T: //O(n)
+        if not esHoja(n): O(1) //vemos q no tenga hijos y chau
+            if nivelMaximoSinVerPadre[nodo] > niveles[padre(nodo)]: //O(1)
+                puntos ++
+
+    return puntos
+
+Complejidad: O(n + m) + O(n + m) + O(n) pero como G conexo entonces m = O(n) ==> O(m) 
+
+    
+    
