@@ -1,0 +1,10 @@
+esBipartito?(G: grafo):
+
+	T: grafo = DFS(G) // O(n+m)
+	distancias: array = DFSDistancias(G) //visto en la practica O(n+m)
+
+	for e = (v,w) in E(G)/E(T):
+		if (esPar(distancias[v]) and esPar(distancias[w])) or (not esPar(distancias[v]) and not esPar(distancias[w])):
+			return False
+
+	return True

@@ -1,0 +1,30 @@
+obtenerPos(A,e):
+
+	return ubicar(A,e,0,len(A)=n)
+
+	ubicar(A, e, i, j):
+		if i == j:
+			return i
+
+		if not aparece?(A,e,i,j):
+			return "no aparece"
+
+		mitad = (i + j) // 2 #supongo division entera truncada
+
+		a1 = A[:mitad]
+		a2 = A[mitad+1:] 
+
+		if aparece?(a1,e,i,j): #O(raiz(n - 0 + 1)) = O(raiz(n)) = f(n) xq es lo que esta en la recursion
+			return ubicar(a1,e,i,j)
+		elif 
+			return ubicar(a2,e,i,j)
+
+a = 1 #pues hago una sola recursion
+c = 2 #pues divido en 2 subproblemas
+d = 0.5 pues raiz(n) = n^0.5
+
+T(n) = 1 T(n/2) + n^0.5
+
+log_c_a = 0 
+
+f(n) in omega(n ^ (log_c_a + epsilon)) en especifico f(n) in omega(n ^ 0 + 0.5) ==> T(n) in theeta(raiz(n))
