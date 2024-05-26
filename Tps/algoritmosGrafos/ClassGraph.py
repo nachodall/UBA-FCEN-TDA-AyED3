@@ -38,7 +38,7 @@ class Graph:
         edgeSet = []
         for v in self.adj_list:
             for edge in self.adj_list[v]:
-                if edge not in edgeSet:
+                if (edge[0], v, edge[1]) not in edgeSet:
                     edgeSet.append((v,edge[0],edge[1]))
         return edgeSet
     
@@ -85,33 +85,34 @@ E = [
     ("B", "E", 4),
 ]
 
-graph = Graph(V, E)
-graph.printGraph()
+def testGraph():
+    graph = Graph(V, E)
+    graph.printGraph()
 
-print("\nDeleting edge B-E")
-graph.deleteEdge("B", "E")
-graph.printGraph()
+    print("\nDeleting edge B-E")
+    graph.deleteEdge("B", "E")
+    graph.printGraph()
 
-print("\nDeleting vertex D")
-graph.deleteVertex("D")
-graph.printGraph()
+    print("\nDeleting vertex D")
+    graph.deleteVertex("D")
+    graph.printGraph()
 
-print("\nAdding Vertex I")
-graph.addVertex("I")
-graph.addEdge("I", "A", 10)
-graph.printGraph()
+    print("\nAdding Vertex I")
+    graph.addVertex("I")
+    graph.addEdge("I", "A", 10)
+    graph.printGraph()
 
-graph.addEdge("B", "I", 4)
-graph.addVertex("J")
-graph.addEdge("I", "J", 7)
-graph.addVertex("M")
-graph.addEdge("S", "M", 10)
-graph.addEdge("M", "D", 8)
-print("\nBFS starting from I")
-graph.bfs("I")
-print("\nDFS starting from I")
-graph.dfs("I")
-set = graph.getVertexSet()
-print(set)
-edfes = graph.getEdgeSet()
-print(edfes)
+    graph.addEdge("B", "I", 4)
+    graph.addVertex("J")
+    graph.addEdge("I", "J", 7)
+    graph.addVertex("M")
+    graph.addEdge("S", "M", 10)
+    graph.addEdge("M", "D", 8)
+    print("\nBFS starting from I")
+    graph.bfs("I")
+    print("\nDFS starting from I")
+    graph.dfs("I")
+    set = graph.getVertexSet()
+    print(set)
+    edfes = graph.getEdgeSet()
+    print(edfes)

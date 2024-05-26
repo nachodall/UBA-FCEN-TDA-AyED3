@@ -17,40 +17,38 @@ class DisjSet:
 
     # Do union of two sets represented by x and y
     def union(self, x, y): 
-        xset = self.find(x) 
-        yset = self.find(y) 
+        self.link(self.find(x), self.find(y))
+        
+    def link(self, x, y):
+        if self.rank[x] > self.rank[y]:
+            self.parent[y] = x
+        else:
+            self.parent[x] = y
+            if self.rank[x] == self.rank[y]:
+                self.rank[y] += 1
 
-        if xset == yset: 
-            return
+def testSets():
+    # Driver code 
+    ds = DisjSet()
 
-        if self.rank[xset] < self.rank[yset]: 
-            self.parent[xset] = yset 
-        elif self.rank[xset] > self.rank[yset]: 
-            self.parent[yset] = xset 
-        else: 
-            self.parent[yset] = xset 
-            self.rank[xset] += 1
+    # Make sets for characters
+    for char in ['a', 'b', 'c', 'd', 'e']:
+        ds.make_set(char)
 
-# Driver code 
-ds = DisjSet()
+    # Perform union operations
+    ds.union('a', 'c') 
+    ds.union('e', 'c') 
+    ds.union('d', 'b') 
 
-# Make sets for characters
-for char in ['a', 'b', 'c', 'd', 'e']:
-    ds.make_set(char)
+    # Check if 'e' and 'a' are in the same set
+    if ds.find('e') == ds.find('a'): 
+        print('Yes') 
+    else: 
+        print('No') 
 
-# Perform union operations
-ds.union('a', 'c') 
-ds.union('e', 'c') 
-ds.union('d', 'b') 
+    # Check if 'b' and 'a' are in the same set
+    if ds.find('b') == ds.find('a'): 
+        print('Yes') 
+    else: 
+        print('No') 
 
-# Check if 'e' and 'a' are in the same set
-if ds.find('e') == ds.find('a'): 
-    print('Yes') 
-else: 
-    print('No') 
-
-# Check if 'b' and 'a' are in the same set
-if ds.find('b') == ds.find('a'): 
-    print('Yes') 
-else: 
-    print('No') 
